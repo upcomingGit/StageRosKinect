@@ -1,0 +1,63 @@
+include "robot1.inc"
+include "robot2.inc"
+include "floorplan.inc"
+include "walle.inc"
+
+threads 2 #This is for the number of threads that will be created. Still not so clear about this.
+
+resolution 0.02
+
+interval_sim 100
+
+window
+(
+	size [745 448]
+	scale 28
+	rotate [0 0]
+	show_data 1
+)
+
+floorplan
+(
+	name "hospital"
+	bitmap "hospital1.png"
+	size [75 75 0.5]
+	pose [0 0 0 0]
+)
+
+roomba1
+(
+	name "roomba1"
+	pose [0 -3 0 90]
+	drive "diff"
+  laser_return 1                 # reflects laser beams
+  ranger_return 1             	# reflects sonar beams
+  blobfinder_return 1         	# Seen by blobfinders  
+  fiducial_return 1           	# Seen as "1" fiducial finders
+) 
+
+roomba2
+(
+	name "roomba2"
+	pose [-2.5 -5 0 90]
+	drive "diff"
+  laser_return 1                 # reflects laser beams
+  ranger_return 1             	# reflects sonar beams
+  blobfinder_return 1         	# Seen by blobfinders  
+  fiducial_return 1           	# Seen as "1" fiducial finders
+)
+
+walle
+(
+	name "walle"
+	pose [0 -2 0 0]
+
+	drive "diff"		 	# Differential steering model.
+
+  obstacle_return 1           	# Can hit things.
+  laser_return 1                 # reflects laser beams
+  ranger_return 1             	# reflects sonar beams
+  blobfinder_return 1         	# Seen by blobfinders  
+  fiducial_return 1           	# Seen as "1" fiducial finders
+
+)
