@@ -1,4 +1,4 @@
 StageRosKinect
 ==============
 
-Using the XBox Kinect to Contol a Robot in Stage_Ros
+Using the XBox Kinect to Contol a Robot in the stage_ros simulation
